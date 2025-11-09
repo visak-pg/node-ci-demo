@@ -1,0 +1,34 @@
+name: Node.js CI
+
+# Run this workflow on push or pull request to main or feature branches
+on:
+  push:
+    branches:
+      - main
+      - feature-greeting  # include any feature branch you want CI for
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4️⃣ Run Node.js app
+      - name: Run app
+        run: node index.js
