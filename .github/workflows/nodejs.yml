@@ -29,10 +29,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
-
+      
       # 4️⃣ Run Node.js app
       - name: Run app
         run: node index.js
+
+      - name: Run tests
+        run: npm test
